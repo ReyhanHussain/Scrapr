@@ -1,24 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScrapR - Under Development</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ScrapR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
 </head>
 
-<body
-    class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center h-screen p-5">
-    <div class="text-center max-w-xl">
-        <h1 class="text-5xl md:text-7xl font-extrabold text-green-400 animate-pulse">ScrapR</h1>
-        <p class="text-lg md:text-2xl mt-4 font-light">A secure file and text-sharing platform.</p>
-        <p class="text-md md:text-lg mt-2 text-gray-300">Currently under development. </p>
-        <p class="text-md md:text-lg mt-2 text-gray-300">Stay tuned! </p>
-        <div class="mt-6 flex justify-center"> 
-            <span class="inline-block animate-spin rounded-full h-12 w-12 border-t-4 border-green-400"></span> 
+
+<body>
+    
+    <div class="window">
+        <!-- Header Section -->
+        <div class="header-container">
+            <span class="logo">🗑 ScrapR</span>
+            <span class="close-button" onclick="alert('Demo: Closing disabled')">❌</span>
         </div>
+        <!-- Retro Message Display -->
+        <div class="message-display" id="messageDisplay">Welcome to ScrapR! <br> |Under-Development|</div>
+        
+      
+        <!-- Label, Public/Private Indicator, and Power Button -->
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="label"><B>ENTER YOUR TEXT:</B></label>
+            <span id="accessIndicator" class="indicator public-indicator">Public</span>
+            <button class="power-button" id="toggleDisplayButton" onclick="toggleDisplay()">⏻</button>
+        </div>
+        <div class="font-dropdown">
+            <select id="fontSelect" onchange="changeFont()">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+            </select>
+            <select id="fontSizeSelect" onchange="changeFontSize()">
+                <option value="8px">8px</option>
+                <option value="10px">10px</option>
+                <option value="12px">12px</option>
+                <option value="14px">14px</option>
+                <option value="16px" selected>16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+                <option value="28px">28px</option>
+                <option value="32px">32px</option>
+            </select>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <button class="button" id="boldBtn" onclick="applyFormatting('bold')">Bold</button>
+                <button class="button" id="italicBtn" onclick="applyFormatting('italic')">Italic</button>
+                <button class="button" onclick="document.getElementById('colorInput').click()">Color</button>
+                <input type="color" id="colorInput" onchange="applyColor(this.value)">
+            </div>
+            <button class="button apply-button" id="saveChangesButton" style="display: none;">Save Changes</button>
+        </div>
+        <div id="textEditor" contenteditable="true">Type your text here...</div>
+        <label class="label"><B>UPLOAD FILE:</B></label>
+        <div class="file-upload">
+            <span id="fileName">No file chosen...</span>
+            <button class="button" onclick="document.getElementById('fileInput').click()">Browse</button>
+            <input type="file" id="fileInput" hidden>
+        </div>
+        <div class="toolbar">
+            <button class="toggle-password" id="togglePasswordBtn" onclick="togglePasswordSection()">
+                Enable Password
+            </button>
+        </div>
+        <div class="password-section" id="passwordSection">
+            <label class="label">PASSWORD (OPTIONAL):</label>
+            <div class="password-input-container">
+                <input type="password" id="passwordInput" placeholder="Enter password...">
+                <button class="button" onclick="togglePasswordVisibility()" id="togglePass">Show</button>
+            </div>
+        </div>
+        <button class="generate-link" onclick="generateLink()">Generate Link</button>
+        <div class="link-box" id="linkBox">
+            <p>Shareable link:</p>
+            <span id="shareLink">https://trashify.link/</span>
+            <div style="margin-top: 10px;">
+                <button class="button" onclick="copyLink()">Copy</button>
+                <button class="button" onclick="deleteFile()">Delete</button>
+            </div>
+        </div>
+        <div class="timer" id="timer"></div>
+ 
     </div>
 </body>
-
 </html>

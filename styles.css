@@ -1,0 +1,390 @@
+/* General Reset */
+body {
+    background: #C0C0C0;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: black;
+    padding: 20px;
+    margin: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="%23C0C0C0"><rect width="4" height="4" fill="%23F0E6D2"/><rect x="4" y="4" width="4" height="4" fill="%23D3D3D3"/></svg>');
+    overflow-x: hidden;
+}
+
+.window {
+    background: #F0E6D2;
+    border: 3px solid #808080;
+    width: 95%; /* Adjusted to take up 95% of the screen width */
+    max-width: 500px; /* Maximum width for larger screens */
+    margin: 20px auto; /* Center the window */
+    padding: 20px;
+    box-shadow: 4px 4px 0px #808080;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure both logo and close button are vertically aligned */
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #f06001; /* Changed to a matching green color */
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 1.5em; /* Increased font size to match the height of the logo */
+    color: #4CAF50; /* Match the color of the logo */
+}
+
+.label {
+    font-size: 1em;
+    text-align: left;
+    margin-top: 10px;
+    display: block;
+}
+
+.button {
+    background: #FFA500;
+    border: 2px solid #808080;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 3px 3px 0px #808080;
+    transition: all 0.2s;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background: #aaff20;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #808080;
+}
+
+.generate-link {
+    background: #ff7e4f;
+    border: 2px solid #808080;
+    padding: 0.8em 1em;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 3px 3px 0px #808080;
+    transition: all 0.2s;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.generate-link:hover {
+    background: #ff4d4d;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #808080;
+}
+
+#textEditor {
+    width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+    padding: 0.5em;
+    border: 2px solid #808080;
+    margin-top: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    outline: none;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.file-upload {
+    background: #FFFFFF;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #808080;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    border-radius: 4px;
+}
+
+.link-box {
+    background: #FFFFFF;
+    padding: 10px;
+    border: 2px solid #808080;
+    margin-top: 15px;
+    text-align: left;
+    display: none;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.timer {
+    color: red;
+    margin-top: 10px;
+}
+
+#colorInput {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.font-dropdown {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.font-dropdown select {
+    width: 120px;
+    padding: 0em;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    border: 2px solid #808080;
+    background: #F0E6D2;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px #808080;
+    cursor: pointer;
+}
+
+.message-display {
+    background: #000;
+    color: #00FF00;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    padding: 10px;
+    margin-top: 20px;
+    border: 2px solid #808080;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px #808080;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+}
+
+.power-button {
+    background: #FFA500;
+    border: 2px solid #808080;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 3px 3px 0px #808080;
+    transition: all 0.2s;
+    margin-top: 10px;
+    border-radius: 4px;
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.power-button:hover {
+    background: #aaff20;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #808080;
+}
+
+.password-section {
+    margin-top: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-section.visible {
+    display: flex;
+}
+
+.toggle-password {
+    background: #4cb04f;
+    border: 2px solid #808080;
+    padding: 0.7em 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 3px 3px 0px #808080;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.toggle-password:hover {
+    background: #aaff20;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #808080;
+}
+
+.toggle-password.active {
+    background: #ff4d4d;
+    box-shadow: inset 2px 2px 0px #808080;
+    transform: translate(2px, 2px);
+}
+
+.password-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-input-container input {
+    padding: 0.5em;
+    border: 2px solid #808080;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    flex-grow: 1;
+}
+
+.password-input-container button {
+    background: #FFA500;
+    border: 2px solid #808080;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 3px 3px 0px #808080;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.password-input-container button:hover {
+    background: #aaff20;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #808080;
+}
+
+/* Public/Private Indicator */
+.indicator {
+    background: #FF4D4D; /* Default: Public */
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+    border: 2px solid #808080;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px #808080;
+    margin-top: 10px;
+    margin-left: 160px;
+    cursor: default; /* Not clickable */
+}
+
+.indicator.private-indicator {
+    background: #4CAF50; /* Green for Private */
+}
+
+.indicator.public-indicator {
+    background: #FF4D4D; /* Red for Public */
+}
+
+/* Save Changes Button Animation */
+.save-changes-animation {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Media Queries for Mobile Display */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduce padding on mobile */
+    }
+
+    .window {
+        width: 100%; /* Take up full width on mobile */
+        max-width: none; /* Remove max-width restriction */
+        padding: 15px; /* Reduce padding inside the window */
+        margin: 10px auto; /* Reduce margin around the window */
+    }
+
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .close-button {
+        font-size: 1.2em; /* Slightly smaller close button on mobile */
+    }
+
+    .button {
+        font-size: 0.8em;
+        padding: 0.3em 0.6em;
+    }
+
+    .generate-link {
+        font-size: 1em;
+        padding: 0.6em 0.8em;
+    }
+
+    .power-button {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    .font-dropdown {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .font-dropdown select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .password-input-container {
+        flex-direction: column;
+    }
+
+    .password-input-container input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .password-input-container button {
+        width: 100%;
+    }
+
+    .indicator {
+        margin-left: 0;
+    }
+}
