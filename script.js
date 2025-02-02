@@ -143,10 +143,10 @@ async function generateLink() {
 
     // Generate a random link if no link exists
     let link = shareLink.textContent.trim();
-    if (link === 'https://trashify.link/') {
+    if (link === 'https://scrapr.netlify.app/') {
         const randWord = words[Math.floor(Math.random() * words.length)];
         const randNum = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        link = `https://trashify.link/${randWord}${randNum}`;
+        link = `https://scrapr.netlify.app/${randWord}${randNum}`;
         shareLink.textContent = link;
     }
 
@@ -308,7 +308,7 @@ function deleteFile() {
 
     // Hide the link box
     document.getElementById('linkBox').style.display = 'none';
-    document.getElementById('shareLink').textContent = 'https://trashify.link/';
+    document.getElementById('shareLink').textContent = 'https://scrapr.netlify.app/';
     document.getElementById('fileName').textContent = 'No file chosen...';
     document.getElementById('fileInput').value = '';
     document.getElementById('timer').textContent = '';
